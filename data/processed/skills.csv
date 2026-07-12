@@ -1,0 +1,11 @@
+skill_id,skill_name,category,demand_score,salary_impact,difficulty,future_score,ai_resistance
+1,Python,programming,95,9,6,96,9
+2,SQL,Database,92,8,5,94,8
+3,Numpy,Python Library,85,7,4,88,8
+4,Pandas,Python Library,90,8,5,92,8
+5,Excel,Spreadsheet,75,6,3,70,4
+6,Power BI,Visualization,88,8,5,91,7
+7,Statistics,Mathematics,93,9,7,95,9
+8,Git,Version Control,89,7,4,90,8
+9,Github,Version Control,87,6,3,89,8
+10,Machine Learning,AI,97,10,8,99,9

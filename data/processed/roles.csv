@@ -1,0 +1,9 @@
+role_id,role_name,category,base_salary,growth_score,automation_risk
+1,DatA Analyst,Analytics,6.5,9,3
+2,Business Analyst,Analytics,7.5,8,2
+3,Data Scientist,AI,12.0,10,2
+4,ML Engineer,AI,14.0,10,2
+5,Data Engineer,Engineering,11.0,9,3
+6,AI Engineer,AI,15.0,10,2
+7,BI Analyst,Analytics,8.0,8,3
+8,Python Developer,Sotfware,9.0,8,4
