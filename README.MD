@@ -1,42 +1,55 @@
 # 🚀 Future Workforce Evolution Engine
 
-> **An AI-inspired career intelligence system that analyzes user skills, compares them with industry role requirements, and recommends the most suitable career path using a weighted skill matching algorithm.**
+> **An AI-powered Career Intelligence System that analyzes user skills, compares them with industry role requirements using a weighted skill matching algorithm, and recommends the most suitable career path with interactive visualizations.**
 
 ![Status](https://img.shields.io/badge/Status-Version%201.0-success)
 ![Python](https://img.shields.io/badge/Python-3.x-blue)
 ![SQLite](https://img.shields.io/badge/Database-SQLite-green)
-![Pandas](https://img.shields.io/badge/Pandas-Data%20Processing-red)
+![Streamlit](https://img.shields.io/badge/Frontend-Streamlit-red)
+![Plotly](https://img.shields.io/badge/Visualization-Plotly-purple)
 ![License](https://img.shields.io/badge/License-MIT-lightgrey)
 
 ---
 
 # 📖 Project Overview
 
-Future Workforce Evolution Engine is a career recommendation system that evaluates a user's technical skills against multiple industry roles and recommends the best career based on a weighted skill matching algorithm.
+Future Workforce Evolution Engine is an AI-inspired career recommendation system that evaluates a user's technical skills against multiple industry roles and recommends the best career based on a weighted skill matching algorithm.
 
-Instead of simply matching keywords, the system assigns importance weights to skills required for each role and calculates a percentage match score, making recommendations more meaningful and realistic.
+Unlike simple keyword matching systems, this project assigns importance weights to individual skills required for each role and calculates an overall match percentage, making recommendations more meaningful and realistic.
 
-This project is being developed as a modular AI-inspired career intelligence platform with future plans for skill gap analysis, learning roadmap generation, workforce trend analysis, and machine learning integration.
+The system also identifies missing skills, generates a personalized learning roadmap, and visualizes career recommendations through an interactive Streamlit dashboard.
+
+This project has been designed with modular architecture so that Machine Learning based recommendations and AI-driven workforce analytics can be integrated in future versions.
 
 ---
 
-# ✨ Current Features
+# ✨ Features
 
-✅ SQLite Database Integration
+### Career Recommendation Engine
+- ✅ Weighted Skill Matching Algorithm
+- ✅ Best Career Recommendation
+- ✅ Top 3 Career Recommendations
+- ✅ Match Score Calculation
 
-✅ Skills Database
+### Skill Intelligence
+- ✅ Missing Skills Detection
+- ✅ Personalized Learning Roadmap
+- ✅ Skill ID Conversion
+- ✅ Skill Weight Analysis
 
-✅ Roles Database
+### Dashboard
+- ✅ Interactive Streamlit Web Application
+- ✅ Career Recommendation Dashboard
+- ✅ Progress Bar
+- ✅ Bar Chart Visualization
+- ✅ Pie Chart Skill Analysis
+- ✅ Input Validation
 
-✅ Role-Skill Mapping
-
-✅ User Skill to Skill-ID Conversion
-
-✅ Weighted Skill Match Algorithm
-
-✅ Career Recommendation Engine
-
-✅ Modular Python Architecture
+### Database
+- ✅ SQLite Database Integration
+- ✅ Skills Database
+- ✅ Career Roles Database
+- ✅ Role-Skill Mapping
 
 ---
 
@@ -47,9 +60,8 @@ This project is being developed as a modular AI-inspired career intelligence pla
 | Python | Core Development |
 | SQLite | Database |
 | Pandas | Data Processing |
-| NumPy | Numerical Operations |
-| Matplotlib | Visualization *(Upcoming)* |
-| Streamlit | Interactive Dashboard *(Upcoming)* |
+| Streamlit | Interactive Web Dashboard |
+| Plotly | Interactive Data Visualization |
 
 ---
 
@@ -66,83 +78,113 @@ Future-Workforce-Evolution-Engine
 │   └── workforce.db
 │
 ├── src/
+│   ├── app.py
+│   ├── skill_match_engine.py
 │   ├── load_skills.py
 │   ├── load_roles.py
 │   ├── load_skills_roles.py
-│   ├── skill_match_engine.py
 │   └── visualization.py
 │
 ├── README.md
 ├── requirements.txt
-└── .gitignore
+├── .gitignore
+└── LICENSE
 ```
 
 ---
 
 # 🗄 Database Schema
 
-The project currently uses four database tables.
+The recommendation engine uses the following database tables.
 
 | Table | Description |
 |--------|-------------|
-| employees | Employee dataset |
-| skills | Stores all technical skills |
-| roles | Stores available career roles |
+| skills | Stores technical skills |
+| roles | Stores career roles |
 | skills_roles | Maps skills to career roles with importance weights |
+| employees | Employee dataset (Future Analytics Module) |
 
 ---
 
 # ⚙️ Recommendation Workflow
 
 ```text
-User Skills
-      │
-      ▼
-Skill ID Conversion
-      │
-      ▼
-SQLite Database
-      │
-      ▼
-Required Skills Retrieval
-      │
-      ▼
-Weighted Skill Match Algorithm
-      │
-      ▼
-Career Recommendation Engine
-      │
-      ▼
-Best Career Recommendation
+              User Skills
+                   │
+                   ▼
+          Skill ID Conversion
+                   │
+                   ▼
+           SQLite Database
+                   │
+                   ▼
+      Required Skills Retrieval
+                   │
+                   ▼
+     Weighted Skill Matching
+                   │
+                   ▼
+        Match Score Calculation
+                   │
+                   ▼
+       Best Career Recommendation
+                   │
+         ┌─────────┴─────────┐
+         ▼                   ▼
+ Missing Skills      Top 3 Careers
+         │                   │
+         └─────────┬─────────┘
+                   ▼
+      Learning Roadmap Generator
+                   │
+                   ▼
+        Streamlit Interactive Dashboard
 ```
 
 ---
 
 # 🧠 Recommendation Algorithm
 
-The recommendation engine follows these steps:
+The recommendation engine performs the following steps:
 
 1. Accept user skills.
-2. Convert skill names into skill IDs.
-3. Retrieve required skills for every career role.
+2. Convert skills into Skill IDs.
+3. Retrieve required skills for every career.
 4. Compare user skills with required skills.
-5. Calculate a weighted match percentage.
-6. Recommend the role with the highest score.
+5. Calculate weighted match scores.
+6. Recommend the highest matching career.
+7. Identify missing skills.
+8. Generate a personalized learning roadmap.
 
-The weighted score is calculated as:
+### Weighted Match Score
 
-```
-Match Score = (Matched Skill Weight / Total Required Skill Weight) × 100
+```text
+Match Score =
+(Matched Skill Weight / Total Required Skill Weight) × 100
 ```
 
 ---
 
-# 📊 Current Progress
+# 📊 Dashboard Features
+
+The Streamlit dashboard provides:
+
+- 🎯 Best Career Recommendation
+- 📈 Match Score
+- 📊 Top 3 Career Recommendations
+- 📉 Career Match Bar Chart
+- 🥧 Skill Analysis Pie Chart
+- 📚 Missing Skills
+- 🛣 Personalized Learning Roadmap
+
+---
+
+# 📈 Current Progress
 
 ```text
 Overall Progress
 
-████████████░░░░░░░░ 60%
+██████████████████░░ 90%
 
 ✅ Database Layer
 
@@ -152,13 +194,19 @@ Overall Progress
 
 ✅ Career Recommendation Engine
 
-⏳ Skill Gap Analysis
+✅ Streamlit Dashboard
 
-⏳ Learning Roadmap
+✅ Top 3 Recommendations
 
-⏳ Streamlit Dashboard
+✅ Missing Skills Detection
 
-⏳ Machine Learning Module
+✅ Learning Roadmap
+
+✅ Interactive Charts
+
+⏳ Machine Learning Recommendation
+
+⏳ AI Workforce Analytics
 ```
 
 ---
@@ -168,49 +216,49 @@ Overall Progress
 ## ✅ Version 1.0 (Completed)
 
 - SQLite Database
-- Skills Management
-- Roles Management
+- Skills Database
+- Career Roles Database
 - Role-Skill Mapping
-- Weighted Skill Match Algorithm
+- Weighted Skill Matching Algorithm
 - Career Recommendation Engine
-
----
-
-## 🚧 Version 1.1 (Planned)
-
 - Top 3 Career Recommendations
-- Skill Gap Analysis
 - Missing Skills Detection
-- Learning Roadmap Generator
-
----
-
-## 🚀 Version 2.0 (Future)
-
+- Learning Roadmap Generation
 - Interactive Streamlit Dashboard
-- Machine Learning Recommendation System
-- AI Workforce Trend Analysis
-- Future Career Evolution Prediction
-- Salary Growth Estimation
-- Resume-Based Skill Analysis
+- Plotly Visualizations
+- Progress Indicator
+- Input Validation
 
 ---
 
-# 🎯 End Goal
+## 🚀 Version 2.0 (Coming Soon)
 
-The final platform will answer questions like:
+- Machine Learning Recommendation System
+- Resume-Based Skill Analysis
+- Future Workforce Prediction
+- Salary Prediction
+- AI Career Trend Analysis
+- Personalized Career Growth Prediction
+- Resume Upload Support
+- PDF Career Report Generation
 
-- Which career best matches my current skills?
+---
+
+# 🎯 Future Vision
+
+The final platform aims to answer:
+
+- Which career best matches my skills?
 - Which skills should I learn next?
 - What are my missing skills?
 - Which career has the highest future demand?
-- Which career is least affected by AI automation?
-- How can I improve my career match score?
-- How will my career evolve over time?
+- Which career is least affected by AI?
+- How can I improve my match score?
+- How will my career evolve over the next 5–10 years?
 
 ---
 
-# ▶️ How to Run
+# ▶️ Installation
 
 Clone the repository
 
@@ -230,32 +278,50 @@ Install dependencies
 pip install -r requirements.txt
 ```
 
-Run the recommendation engine
+Run the Streamlit application
 
 ```bash
-python src/skill_match_engine.py
+streamlit run src/app.py
 ```
 
 ---
 
-# 📌 Sample Output
+# 📸 Sample Output
 
 ```text
-==========================================
- Future Workforce Evolution Engine
-==========================================
+=========================================
+Future Workforce Evolution Engine
+=========================================
 
 User Skills
 
-- Python
-- SQL
-- Git
+• Python
+• SQL
+• Git
 
-Career Recommendation
+Best Career
 
-Best Role   : Data Engineer
+Data Engineer
 
-Match Score : 77.78 %
+Match Score
+
+77.78%
+
+Top Career Recommendations
+
+1. Data Engineer
+2. Data Analyst
+3. Machine Learning Engineer
+
+Missing Skills
+
+• Apache Spark
+• Airflow
+
+Learning Roadmap
+
+Week 1 : Apache Spark
+Week 2 : Airflow
 ```
 
 ---
@@ -268,14 +334,16 @@ B.Tech – Electronics & Communication Engineering
 
 Birla Institute of Technology Mesra
 
+GitHub: https://github.com/your-username
+
 ---
 
 # ⭐ Project Status
 
-This project is under active development.
+Version **1.0** has been successfully completed.
 
-Version **1.0** of the core recommendation engine has been completed successfully.
+The project currently includes a complete weighted skill-based recommendation engine with an interactive Streamlit dashboard.
 
-Future versions will introduce skill gap analysis, learning roadmap generation, Streamlit dashboards, and AI-powered career intelligence features.
+Future releases will integrate Machine Learning, AI-powered workforce analytics, resume parsing, and predictive career intelligence.
 
 If you found this project useful, consider giving it a ⭐ on GitHub.

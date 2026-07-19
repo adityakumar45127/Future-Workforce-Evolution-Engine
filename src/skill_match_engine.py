@@ -17,7 +17,7 @@ def get_roles(conn) :
 
 
 def get_skills(conn) :
-    query = "select *from skills"
+    query = "select * from skills"
     skills_df = pd.read_sql_query(query, conn)
     return skills_df
 
@@ -45,8 +45,7 @@ def convert_user_skills_to_ids(user_skills, skills_df) :
 
 
 def get_required_skills(role_id, skills_roles_df):
-    required_skills = skills_roles_df[
-        skills_roles_df["role_id"] == role_id]
+    required_skills = skills_roles_df[skills_roles_df["role_id"] == role_id]
     return required_skills
 
 # Recommendation Engine 
@@ -70,24 +69,100 @@ def calculate_match_score(user_skills_ids, required_skills) :
     match_percentage = (matched_weight / total_weight) * 100
     return match_percentage
 
-def recommend_best_role(user_skills_ids, roles, skills_roles) :
-    best_score = 0 
-    best_role = None
-
-    for index , row in roles.iterrows() :
-
+def get_all_career_scores(user_skill_ids, roles, skills_roles) :
+    career_scores = []
+   
+    for index, row in roles.iterrows() :
         role_id = row["role_id"]
         role_name = row["role_name"]
 
-        required_skills = get_required_skills(role_id, skills_roles) 
+        required_skills = get_required_skills (role_id, skills_roles)
+        match_score = calculate_match_score(
+            user_skill_ids,
+            required_skills
+        )
+        career_scores.append((role_id,role_name, match_score))
         
-        match_score = calculate_match_score(user_skills_ids, required_skills)
-        
-        if match_score > best_score :
-            best_score = match_score 
-            best_role = role_name
+    career_scores = sorted(
+            career_scores ,
+            key = lambda x : x[2],
+            reverse = True
+        )
 
-    return best_role, best_score 
+    return career_scores 
+
+
+def recommend_best_role(user_skill_ids, roles, skills_roles) :
+    # best_score = 0 
+    # best_role = None
+
+    # for index, row in roles.iterrows() :
+
+    #     role_id = row["role_id"]
+    #     role_name = row["role_name"]
+
+    all_career_scores = get_all_career_scores(user_skill_ids, roles, skills_roles)
+
+    # for index , row in roles.iterrows() :
+
+    #     role_id = row["role_id"]
+    #     role_name = row["role_name"]
+
+       
+        
+    #     match_score = calculate_match_score(user_skills_ids, required_skills)
+
+        # if match_score > best_score :
+        #     best_score = match_score 
+        #     best_role = role_name
+
+    best_role_id = all_career_scores [0][0]
+    best_role = all_career_scores [0][1]
+    best_score = all_career_scores [0][2]
+
+    return best_role_id, best_role,  best_score 
+    
+def get_top_three_roles(user_skill_ids, roles, skills_roles) :
+    all_career_scores =  get_all_career_scores(
+        user_skill_ids, 
+        roles,
+        skills_roles
+    )
+    top_three = all_career_scores [0:3]
+    return top_three
+
+def get_skill_name(skill_id, skills_df) :
+    
+    result = skills_df[skills_df["skill_id"] == skill_id]
+
+    if result.empty :
+        return None
+    
+    return result.iloc[0]["skill_name"]
+
+
+def get_missing_skills(user_skill_ids, required_skills, skills_df) :
+    
+    missing_skills = []
+
+    for index, row in required_skills.iterrows() :
+        skill_id = row["skill_id"]
+
+        if skill_id not in user_skill_ids :
+            skill_name = get_skill_name(skill_id, skills_df)
+
+            missing_skills.append(skill_name)
+
+    return missing_skills 
+
+def generate_learning_roadmap( missing_skills ):
+
+    week = 1 
+
+    for skill in missing_skills :
+        print(f"week {week} : {skill}")
+        week = week + 1
+
 
 # main program 
 
@@ -107,7 +182,7 @@ if __name__ == "__main__" :
     # print("Skills_roles Table")
     # print(skills_roles)
 
-    required_skills = get_required_skills(1, skills_roles)
+    # required_skills = get_required_skills(1, skills_roles)
     # print("Required Skills for Role ID 1")
     # print(required_skills)
 
@@ -121,21 +196,49 @@ if __name__ == "__main__" :
     # print("User skills_ids")
     # print(user_skills_ids)
 
-    best_role , best_score = recommend_best_role(
+    top_three_roles = get_top_three_roles(
+        user_skills_ids,
+        roles,
+        skills_roles)
+
+    
+    best_role_id , best_role, best_score = recommend_best_role(
         user_skills_ids,
         roles,
         skills_roles
     )
-    print("\n  ===================  ")
+    required_skills = get_required_skills (best_role_id, skills_roles)
+
+    missing_skills = get_missing_skills(user_skills_ids, required_skills, skills)
+
+    print("=" * 40)
     print("\n  Future Workforce Evolution Engine  ")
+    print("=" * 40)
 
     print("\n User Skills  ")
+
     for skill in user_skills :
         print("-", skill)
 
-    print("\n Career Recommendation")
-    print("Best Role :" , best_role)
-    print("Match Score :", round(best_score,2), "%")
+    print("\n Top 3 Career Recommendations")
 
+    print("\nBest Role :" , best_role)
+    print("\nMatch Score :", round(best_score,2), "%")
+
+    
+                                              
+
+    rank = 1 
+    for role_id, role, score in top_three_roles :
+        print(f"{rank}.{role} : {round(score, 2)} %")
+        rank = rank+1
+
+    print("\n Missing Skills")
+
+    for skill in missing_skills :
+        print("-", skill)
+
+    print("\n Learning Roadmap")
+    generate_learning_roadmap(missing_skills)
 
     conn.close()

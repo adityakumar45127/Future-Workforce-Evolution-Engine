@@ -6,6 +6,7 @@ df = pd.read_csv("data/processed/roles.csv")
 conn = sqlite3.connect("database/workforce.db")
 
 cursor = conn.cursor()
+
 #purana data delete kr rhe hain
 cursor.execute("delete from roles")
 
