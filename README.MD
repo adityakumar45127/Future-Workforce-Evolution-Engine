@@ -15,9 +15,7 @@
 
 **🔗 Live Application**
 
-> https://YOUR-STREAMLIT-APP.streamlit.app
-
-*(Replace this with your deployed Streamlit URL.)*
+> https://future-workforce-evolution-engine.streamlit.app/
 
 ---
 
