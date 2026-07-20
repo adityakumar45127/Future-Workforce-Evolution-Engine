@@ -1,4 +1,5 @@
 import pandas as pd 
+import sqlite3
 import matplotlib.pyplot as plt 
 
 df = pd.read_csv("data/raw/WA_Fn-UseC_-HR-Employee-Attrition.csv")
@@ -61,3 +62,4 @@ plt.xlabel("Monthly Income")
 plt.ylabel("Number of Employees")
 
 plt.show()
+
