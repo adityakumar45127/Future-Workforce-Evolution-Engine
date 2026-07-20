@@ -357,7 +357,9 @@ http://localhost:8501
 ### 🏠 Home Page
 
 ```
-(Add Screenshot Here)
+<p align="center">
+  <img src="images/home.png" alt="Home Page" width="900">
+</p>
 ```
 
 ---
@@ -365,7 +367,9 @@ http://localhost:8501
 ### 📄 Resume Upload
 
 ```
-(Add Screenshot Here)
+<p align="center">
+  <img src="images/resume_upload.png" alt="Resume Upload" width="900">
+</p>
 ```
 
 ---
@@ -373,7 +377,9 @@ http://localhost:8501
 ### 📊 Recommendation Dashboard
 
 ```
-(Add Screenshot Here)
+<p align="center">
+  <img src="images/recommendation_dashboard.png" alt="Dashboard" width="900">
+</p>
 ```
 
 ---
@@ -381,8 +387,10 @@ http://localhost:8501
 ### 📑 PDF Career Report
 
 ```
-(Add Screenshot Here)
-```
+
+<p align="center">
+  <img src="images/generated_report.png" alt="PDF Report" width="900">
+</p>
 
 ---
 
