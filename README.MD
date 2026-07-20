@@ -354,37 +354,34 @@ http://localhost:8501
 
 ### 🏠 Home Page
 
-```
 <p align="center">
   <img src="images/home.png" alt="Home Page" width="900">
 </p>
-```
+
 
 ---
 
 ### 📄 Resume Upload
 
-```
+
 <p align="center">
   <img src="images/resume_upload.png" alt="Resume Upload" width="900">
 </p>
-```
+
 
 ---
 
 ### 📊 Recommendation Dashboard
 
-```
+
 <p align="center">
   <img src="images/recommendation_dashboard.png" alt="Dashboard" width="900">
 </p>
-```
+
 
 ---
 
 ### 📑 PDF Career Report
-
-```
 
 <p align="center">
   <img src="images/generated_report.png" alt="PDF Report" width="900">
