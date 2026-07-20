@@ -27,7 +27,7 @@ st.sidebar.title("📌 Project Information")
 st.sidebar.info("""
 **Future Workforce Evolution Engine**
                 
-Version : 1.0 
+Version : 2.0 
                 
 Developer : Aditya Kumar
                 
