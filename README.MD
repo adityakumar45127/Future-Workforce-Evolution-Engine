@@ -1,4 +1,4 @@
-# 🚀 Future Workforce Evolution Engine
+🚀 Future Workforce Evolution Engine
 
 > **An AI-Powered Career Recommendation System that combines Rule-Based Intelligence and Machine Learning to analyze user skills, recommend suitable career paths, identify skill gaps, and generate personalized career reports.**
 
@@ -21,7 +21,7 @@
 
 # 📖 Project Overview
 
-Future Workforce Evolution Engine is an AI-powered career intelligence platform that helps users discover the most suitable career based on their technical skills.
+Future Workforce Evolution Engine is an end-to-end career intelligence platform that helps users discover suitable career paths based on their technical skills and resume profile.
 
 The application combines a **Weighted Rule-Based Recommendation Engine** with a **Machine Learning Classification Model** to provide intelligent career recommendations.
 
@@ -52,7 +52,7 @@ The project demonstrates the integration of:
 ## 🤖 Artificial Intelligence
 
 - ✅ Machine Learning Career Prediction
-- ✅ AI Confidence Score
+- ✅ Prediction Confidence Score
 - ✅ Rule-Based vs ML Comparison
 
 ---
@@ -111,7 +111,7 @@ The project demonstrates the integration of:
 | Machine Learning | Scikit-learn |
 | Database | SQLite |
 | Data Processing | Pandas, NumPy |
-| Visualization | Plotly |
+| Visualization | Streamlit |
 | Web Framework | Streamlit |
 | Resume Parsing | pdfplumber |
 | PDF Report | ReportLab |
@@ -140,25 +140,25 @@ The application consists of multiple independent modules:
 Future-Workforce-Evolution-Engine
 │
 ├── data/
-│   ├── raw/
-│   └── processed/
+│   ├── raw/
+│   └── processed/
 │
 ├── database/
-│   └── workforce.db
+│   └── workforce.db
 │
 ├── models/
-│   ├── career_model.pkl
-│   └── label_encoder.pkl
+│   ├── career_model.pkl
+│   └── label_encoder.pkl
 │
 ├── src/
-│   ├── app.py
-│   ├── skill_match_engine.py
-│   ├── resume_parser.py
-│   ├── pdf_report.py
-│   ├── load_skills.py
-│   ├── load_roles.py
-│   ├── load_skills_roles.py
-│   └── visualization.py
+│   ├── app.py
+│   ├── skill_match_engine.py
+│   ├── resume_parser.py
+│   ├── pdf_report.py
+│   ├── load_skills.py
+│   ├── load_roles.py
+│   ├── load_skills_roles.py
+│   └── visualization.py
 │
 ├── requirements.txt
 ├── README.md
@@ -186,53 +186,53 @@ The weighted relationship between skills and roles enables realistic career reco
 # ⚙️ Recommendation Workflow
 
 ```text
-                     USER
-                      │
-                      ▼
-        Resume Upload / Manual Skills
-                      │
-          ┌───────────┴───────────┐
-          ▼                       ▼
- Resume Parsing           Manual Skill Selection
-          │                       │
-          └───────────┬───────────┘
-                      ▼
-           Automatic Skill Detection
-                      │
-                      ▼
-           Skill ID Conversion
-                      │
-                      ▼
-             SQLite Database
-                      │
-                      ▼
-        Required Skill Retrieval
-                      │
-                      ▼
-      Weighted Skill Matching Engine
-                      │
-          ┌───────────┴────────────┐
-          ▼                        ▼
- Rule-Based Prediction      ML Prediction
-          │                        │
-          └───────────┬────────────┘
-                      ▼
-          Career Recommendation
-                      │
-                      ▼
-      Missing Skills Identification
-                      │
-                      ▼
-      Personalized Learning Roadmap
-                      │
-                      ▼
-         Salary • Growth • AI Risk
-                      │
-                      ▼
-       Interactive Streamlit Dashboard
-                      │
-                      ▼
-       Professional PDF Career Report
+                     USER
+                      │
+                      ▼
+        Resume Upload / Manual Skills
+                      │
+          ┌───────────┴───────────┐
+          ▼                       ▼
+ Resume Parsing           Manual Skill Selection
+          │                       │
+          └───────────┬───────────┘
+                      ▼
+           Automatic Skill Detection
+                      │
+                      ▼
+           Skill ID Conversion
+                      │
+                      ▼
+             SQLite Database
+                      │
+                      ▼
+        Required Skill Retrieval
+                      │
+                      ▼
+      Weighted Skill Matching Engine
+                      │
+          ┌───────────┴────────────┐
+          ▼                        ▼
+ Rule-Based Prediction      ML Prediction
+          │                        │
+          └───────────┬────────────┘
+                      ▼
+          Career Recommendation
+                      │
+                      ▼
+      Missing Skills Identification
+                      │
+                      ▼
+      Personalized Learning Roadmap
+                      │
+                      ▼
+         Salary • Growth • AI Risk
+                      │
+                      ▼
+       Interactive Streamlit Dashboard
+                      │
+                      ▼
+       Professional PDF Career Report
 ```
 
 ---
@@ -271,7 +271,7 @@ Match Score
 (Total Required Skill Weight)
 ```
 
-Higher weighted skills contribute more to the final recommendation, making the prediction more realistic than simple keyword matching.
+Higher-weighted skills contribute more to the final recommendation, making the rule-based ranking more informative than simple keyword matching.
 
 ---
 
@@ -281,7 +281,7 @@ The interactive Streamlit dashboard provides:
 
 - 🎯 Best Career Recommendation
 - 🤖 Machine Learning Prediction
-- 📈 AI Confidence Score
+- 📈 Prediction Confidence Score
 - 📊 Top 3 Career Recommendations
 - 📉 Career Match Visualization
 - 🥧 Skill Distribution Chart
@@ -355,36 +355,31 @@ http://localhost:8501
 ### 🏠 Home Page
 
 <p align="center">
-  <img src="images/home.png" alt="Home Page" width="900">
+  <img src="images/home.png" alt="Home Page" width="900">
 </p>
-
 
 ---
 
 ### 📄 Resume Upload
 
-
 <p align="center">
-  <img src="images/resume_upload.png" alt="Resume Upload" width="900">
+  <img src="images/resume_upload.png" alt="Resume Upload" width="900">
 </p>
-
 
 ---
 
 ### 📊 Recommendation Dashboard
 
-
 <p align="center">
-  <img src="images/recommendation_dashboard.png" alt="Dashboard" width="900">
+  <img src="images/recommendation_dashboard.png" alt="Dashboard" width="900">
 </p>
-
 
 ---
 
 ### 📑 PDF Career Report
 
 <p align="center">
-  <img src="images/generated_report.png" alt="PDF Report" width="900">
+  <img src="images/generated_report.png" alt="PDF Report" width="900">
 </p>
 
 ---
@@ -416,7 +411,7 @@ This project demonstrates practical experience in:
 
 ### Data Visualization
 
-- Plotly Interactive Charts
+- Streamlit Dashboard Components
 
 ### Web Development
 
@@ -452,9 +447,69 @@ Through this project, I gained hands-on experience in:
 
 ---
 
-# 🚀 Future Enhancements
+**# 📊 Model Performance
 
-The project will continue evolving with additional capabilities such as:
+The current career prediction pipeline uses a tuned Random Forest Classifier trained on the processed career dataset.
+
+Metric
+
+Result
+
+Dataset Records
+
+1,354
+
+Input Features
+
+30
+
+Career Categories
+
+8
+
+Training Samples
+
+1,083
+
+Test Samples
+
+271
+
+Test Accuracy
+
+91.51%
+
+Weighted Precision
+
+92.21%
+
+Weighted Recall
+
+91.51%
+
+Weighted F1 Score
+
+91.63%
+
+5-Fold Cross-Validation F1
+
+94.79%
+
+Random Forest vs XGBoost
+
+XGBoost was also evaluated as a benchmark. On the held-out test set:
+
+Random Forest Accuracy: 91.51%
+
+XGBoost Accuracy: 89.67%
+
+The tuned Random Forest was therefore retained as the final production model.
+
+Dataset note: The 1,354-record career dataset is a processed/generated project dataset based on the project's skill-role framework. These metrics should be interpreted as model evaluation results on this dataset, not as validation on a population of real-world candidates.
+
+🚀 Future Enhancements**
+
+The project can continue evolving with additional capabilities such as:
 
 - Authentication & User Accounts
 - Resume Ranking System
@@ -479,8 +534,7 @@ The project will continue evolving with additional capabilities such as:
 - ✅ Career Analytics
 - ✅ Professional PDF Report Generation
 - ✅ SQLite Database Integration
-- ✅ Plotly Data Visualization
-- ✅ Streamlit Cloud Deployment
+\- ✅ Streamlit Cloud Deployment
 - ✅ Modular & Scalable Codebase
 
 ---
@@ -569,8 +623,7 @@ Special thanks to the open-source Python ecosystem, including:
 - Streamlit
 - Scikit-learn
 - Pandas
-- Plotly
-- ReportLab
+\- ReportLab
 - pdfplumber
 - SQLite
 
